@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          ref: aws-ips
+          ref: awsips
       - name: Create temp dir
         run: |-
           mkdir -p temp
