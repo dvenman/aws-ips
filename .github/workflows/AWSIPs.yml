@@ -21,7 +21,7 @@ jobs:
           mkdir -p temp
       - name: Pull the AWS IPs
         run: |-
-          nslookup www.aws.com | grep "Address:" | grep -v "#53" | awk '{print $2}' > ./temp/awsips.txt
+          nslookup www.aws.com | grep "Address:" | grep -v "#53" | awk '{print $2}' > awsips.txt
       - name: Commit
         run: |-
           git config user.name "Automated"
