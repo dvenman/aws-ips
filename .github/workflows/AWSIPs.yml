@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-nslookup www.aws.com | grep Address: | grep -v \#53 | awk '{print $2}'name: MineAWSIPs
+name: MineAWSIPs
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
           mkdir -p temp
       - name: Pull the AWS IPs
         run: |-
-          nslookup www.aws.com | grep Address: | grep -v \#53 | awk '{print $2}'
+          nslookup www.aws.com | grep Address: | grep -v \#53 | awk '{print $2}' > awsips.txt
       - name: Commit
         run: |-
           git config user.name "Automated"
