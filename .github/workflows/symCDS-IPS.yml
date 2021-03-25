@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          ref: dshield
+          ref: symips
       - name: Create temp dir
         run: |-
           mkdir -p temp
