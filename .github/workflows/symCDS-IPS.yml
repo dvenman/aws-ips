@@ -1,4 +1,4 @@
-name: MineDshieldTop20
+name: sym-CDS-IPs
 
 on:
   push:
@@ -21,8 +21,7 @@ jobs:
           mkdir -p temp
       - name: Pull the Block List
         run: |-
-          curl "https://feeds.dshield.org/block.txt" -o ./temp/block.txt || true
-          ./scripts/dshield-ip-list.py ./temp/block.txt > dshieldbl.txt
+          nslookup symmetricscds.lev.homeoffice.gov.uk | grep Address: | grep -v \#53 | awk '{print $2}'
       - name: Commit
         run: |-
           git config user.name "Automated"
